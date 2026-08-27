@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PostEditor } from "@/components/post-editor";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { logoutAction } from "@/app/admin/actions";
 import { requireAdmin } from "@/lib/auth";
 import { getPublishedPosts } from "@/lib/posts";
@@ -26,6 +27,7 @@ export default async function AdminPage() {
         </Link>
         <div className="admin-header-actions">
           <Link href="/">View site ↗</Link>
+          <ThemeToggle />
           <form action={logoutAction}>
             <button type="submit">Sign out</button>
           </form>

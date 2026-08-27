@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function SiteHeader() {
   return (
@@ -12,6 +13,7 @@ export function SiteHeader() {
         <a href="https://ajil.cc/" target="_blank" rel="noreferrer">
           Portfolio <span aria-hidden="true">↗</span>
         </a>
+        <ThemeToggle />
       </nav>
     </header>
   );

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { LoginForm } from "@/components/login-form";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { adminIsConfigured, isAdmin } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
@@ -11,10 +12,13 @@ export default async function AdminLoginPage() {
   return (
     <main className="login-page">
       <div className="login-panel">
-        <Link className="brand" href="/">
-          <span className="brand-mark">A</span>
-          <span>Ajil&apos;s Notes</span>
-        </Link>
+        <div className="login-brand-row">
+          <Link className="brand" href="/">
+            <span className="brand-mark">A</span>
+            <span>Ajil&apos;s Notes</span>
+          </Link>
+          <ThemeToggle />
+        </div>
         <div className="login-copy">
           <p className="kicker">Private editor</p>
           <h1>Welcome back,<br />Ajil.</h1>
