@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MarkdownArticle } from "@/components/markdown-article";
+import { ConsentAwareYouTube } from "@/components/consent-aware-youtube";
 import { PostCard } from "@/components/post-card";
 import { ShareButton } from "@/components/share-button";
 import { SiteFooter } from "@/components/site-footer";
@@ -123,16 +124,10 @@ export default async function BlogPostPage({ params }: Props) {
           )}
 
           {youtubeEmbedUrl && (
-            <section className="video-block" aria-label="Video">
-              <iframe
-                src={youtubeEmbedUrl}
-                title={`Video for ${post.title}`}
-                loading="lazy"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </section>
+            <ConsentAwareYouTube
+              embedUrl={youtubeEmbedUrl}
+              title={`Video for ${post.title}`}
+            />
           )}
 
           <div className="article-signoff">

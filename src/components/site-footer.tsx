@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CookiePreferencesButton } from "@/components/cookie-consent";
 
 export function SiteFooter() {
   return (
@@ -8,6 +9,7 @@ export function SiteFooter() {
         <a href="https://ajil.cc/" target="_blank" rel="noreferrer">
           ajil.cc ↗
         </a>
+        <CookiePreferencesButton />
         <Link className="editor-link" href="/admin/login">
           Editor
         </Link>

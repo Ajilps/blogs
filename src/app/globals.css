@@ -139,8 +139,9 @@ button { color: inherit; }
 .empty-stories p:last-child { margin: 0; color: var(--muted); }
 
 .site-footer { min-height: 150px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; }
-.site-footer > div { display: flex; gap: 24px; }
-.site-footer a:hover { color: var(--oxblood); }
+.site-footer > div { display: flex; align-items: center; gap: 24px; }
+.site-footer a:hover, .site-footer button:hover { color: var(--oxblood); }
+.cookie-preferences-button { padding: 0; border: 0; background: transparent; color: inherit; cursor: pointer; }
 .editor-link { opacity: .65; }
 
 .wide-shell { width: min(1240px, calc(100% - 48px)); margin-inline: auto; }
@@ -190,6 +191,11 @@ button { color: inherit; }
 .audio-card audio { width: 100%; }
 .video-block { position: relative; margin: 68px 0; aspect-ratio: 16 / 9; overflow: hidden; background: var(--ink); }
 .video-block iframe { width: 100%; height: 100%; border: 0; }
+.video-consent-card { margin: 68px 0; padding: 34px; border: 1px solid var(--line); background: var(--paper); }
+.video-consent-card h2 { margin: 0 0 12px; font-family: Georgia, serif; font-size: 2rem; font-weight: 400; }
+.video-consent-card > p:not(.media-label) { margin: 0 0 22px; color: var(--muted); line-height: 1.6; }
+.video-consent-card button { min-height: 42px; padding: 0 14px; border: 1px solid var(--line); background: transparent; color: var(--ink); font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
+.video-consent-card button:hover { border-color: var(--oxblood); color: var(--oxblood); }
 .article-signoff { display: grid; justify-items: center; gap: 9px; margin-top: 84px; padding-top: 48px; border-top: 1px solid var(--line); text-align: center; }
 .article-signoff > span { display: grid; width: 46px; height: 46px; place-items: center; border-radius: 50%; background: var(--oxblood); color: var(--paper); font-family: Georgia, serif; font-style: italic; }
 .article-signoff p { margin: 8px 0 0; font-family: Georgia, serif; font-size: 1.45rem; }
@@ -210,6 +216,16 @@ button { color: inherit; }
 .to-top span { color: var(--oxblood); font-size: 1rem; }
 .to-top-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 .to-top:hover { background: var(--top-hover); }
+
+.cookie-consent { position: fixed; right: 24px; bottom: 24px; z-index: 50; width: min(560px, calc(100% - 48px)); padding: 28px; border: 1px solid var(--top-border); background: var(--top-bg); box-shadow: 0 20px 70px var(--card-shadow); backdrop-filter: blur(14px); }
+.cookie-consent-copy .kicker { margin: 0 0 10px; }
+.cookie-consent-copy h2 { margin: 0 0 10px; font-family: Georgia, serif; font-size: 2rem; font-weight: 400; letter-spacing: -.03em; }
+.cookie-consent-copy > p:last-child { margin: 0; color: var(--ink-soft); font-size: .84rem; line-height: 1.65; }
+.cookie-consent-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 24px; }
+.cookie-consent-actions button { min-width: 108px; min-height: 43px; padding: 0 16px; border: 1px solid var(--line); background: transparent; color: var(--ink); font-size: .7rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; }
+.cookie-consent-actions button:hover { border-color: var(--oxblood); color: var(--oxblood); }
+.cookie-consent-actions .cookie-accept { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+.cookie-consent-actions .cookie-accept:hover { border-color: var(--oxblood); background: var(--oxblood); color: var(--paper); }
 
 .login-page { min-height: 100vh; display: grid; grid-template-columns: minmax(0, 1fr) minmax(420px, .8fr); background: var(--paper); }
 .login-panel { width: min(560px, calc(100% - 64px)); margin: 0 auto; padding: 48px 0; display: flex; flex-direction: column; }
@@ -314,6 +330,9 @@ button { color: inherit; }
   .suggestion-grid { grid-template-columns: 1fr; }
   .suggestion-grid .story-art { min-height: 220px; }
   .to-top { right: 14px; bottom: 14px; }
+  .cookie-consent { right: 16px; bottom: 16px; width: calc(100% - 32px); padding: 22px; }
+  .cookie-consent-actions { justify-content: stretch; }
+  .cookie-consent-actions button { flex: 1; }
   .login-page { grid-template-columns: 1fr; }
   .login-panel { width: min(100% - 32px, 560px); min-height: 100vh; padding: 30px 0; }
   .login-copy { margin: auto 0 34px; }
