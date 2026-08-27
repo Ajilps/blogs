@@ -40,3 +40,5 @@ export type NewPostInput = {
   youtubeUrl?: string | null;
   tags?: string[];
 };
+
+export type UpdatePostInput = NewPostInput;

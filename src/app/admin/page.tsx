@@ -13,7 +13,7 @@ export default async function AdminPage() {
 
   let posts: PostSummary[] = [];
   try {
-    posts = await getPublishedPosts(12);
+    posts = await getPublishedPosts(100);
   } catch (error) {
     console.error("Failed to load admin post list", error);
   }
@@ -54,11 +54,16 @@ export default async function AdminPage() {
           {posts.length ? (
             <div className="published-rows">
               {posts.map((post) => (
-                <Link href={`/blog/${post.slug}`} key={post.id}>
-                  <span>{post.tags[0] || "Notes"}</span>
-                  <strong>{post.title}</strong>
-                  <i aria-hidden="true">↗</i>
-                </Link>
+                <div className="published-row" key={post.id}>
+                  <Link className="published-story-link" href={`/blog/${post.slug}`}>
+                    <span>{post.tags[0] || "Notes"}</span>
+                    <strong>{post.title}</strong>
+                    <i aria-hidden="true">↗</i>
+                  </Link>
+                  <Link className="edit-story-link" href={`/admin/edit/${post.slug}`}>
+                    Edit
+                  </Link>
+                </div>
               ))}
             </div>
           ) : (

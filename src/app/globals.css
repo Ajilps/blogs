@@ -259,11 +259,18 @@ button { color: inherit; }
 .publish-button { margin-left: 72px; min-width: 180px; }
 .published-list { margin-top: 110px; padding-top: 34px; border-top: 1px solid var(--line); }
 .published-rows { margin: 20px 0 0 72px; border-bottom: 1px solid var(--line); }
-.published-rows a { display: grid; grid-template-columns: 120px 1fr auto; gap: 18px; align-items: center; padding: 18px 0; border-top: 1px solid var(--line); }
+.published-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 18px; align-items: center; border-top: 1px solid var(--line); }
+.published-story-link { display: grid; grid-template-columns: 120px 1fr auto; gap: 18px; align-items: center; min-width: 0; padding: 18px 0; }
 .published-rows span { color: var(--oxblood); font-size: .68rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
 .published-rows strong { font-family: Georgia, serif; font-size: 1.12rem; font-weight: 400; }
 .published-rows i { color: var(--muted); }
-.published-rows a:hover strong { color: var(--oxblood); }
+.published-story-link:hover strong { color: var(--oxblood); }
+.edit-story-link { padding: 8px 11px; border: 1px solid var(--line); color: var(--muted); font-size: .68rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+.edit-story-link:hover { border-color: var(--oxblood); color: var(--oxblood); }
+.existing-media { display: grid; gap: 8px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); color: var(--muted); font-size: .72rem; line-height: 1.45; }
+.existing-media a { color: var(--oxblood); font-weight: 700; }
+.existing-media label { display: flex; align-items: flex-start; gap: 7px; cursor: pointer; }
+.existing-media input { width: auto; margin: 2px 0 0; accent-color: var(--oxblood); }
 .admin-empty { margin-left: 72px; color: var(--muted); }
 
 .not-found { min-height: calc(100vh - 238px); display: flex; flex-direction: column; align-items: start; justify-content: center; padding: 72px 0; }
@@ -314,7 +321,8 @@ button { color: inherit; }
   .editor-section-heading { grid-template-columns: 38px 1fr; }
   .editor-form .field-group, .media-field-grid, .publish-button, .published-rows, .admin-empty { margin-left: 0; }
   .media-field-grid { grid-template-columns: 1fr; }
-  .published-rows a { grid-template-columns: 1fr auto; gap: 6px 14px; }
+  .published-row { gap: 12px; }
+  .published-story-link { grid-template-columns: 1fr auto; gap: 6px 14px; }
   .published-rows span { grid-column: 1; }
   .published-rows strong { grid-column: 1; }
   .published-rows i { grid-column: 2; grid-row: 1 / 3; }

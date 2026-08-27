@@ -1,9 +1,9 @@
 import "server-only";
 
 import { cache } from "react";
-import type { Collection, WithId } from "mongodb";
+import { ObjectId, type Collection, type WithId } from "mongodb";
 import { getDatabase } from "@/lib/mongodb";
-import type { NewPostInput, Post, PostSummary } from "@/lib/types";
+import type { NewPostInput, Post, PostSummary, UpdatePostInput } from "@/lib/types";
 import { normalizeYouTubeUrl } from "@/lib/youtube";
 
 type PostDocument = {
@@ -171,4 +171,39 @@ export async function createPost(input: NewPostInput) {
 
   const result = await collection.insertOne(document);
   return { slug, id: result.insertedId.toHexString() };
+}
+
+export async function updatePost(id: string, input: UpdatePostInput) {
+  if (!ObjectId.isValid(id)) return null;
+
+  const collection = await getPostsCollection();
+  const objectId = new ObjectId(id);
+  const existing = await collection.findOne(
+    { _id: objectId, status: "published" },
+    { projection: { slug: 1 } },
+  );
+
+  if (!existing) return null;
+
+  await collection.updateOne(
+    { _id: objectId, status: "published" },
+    {
+      $set: {
+        title: input.title.trim(),
+        excerpt: input.excerpt.trim(),
+        content: input.content.trim(),
+        coverImageUrl: input.coverImageUrl || null,
+        photoUrls: input.photoUrls || [],
+        audioUrl: input.audioUrl || null,
+        youtubeUrl: normalizeYouTubeUrl(input.youtubeUrl),
+        tags: Array.from(
+          new Set((input.tags || []).map((tag) => tag.trim().toLowerCase()).filter(Boolean)),
+        ),
+        readTime: estimateReadTime(input.content),
+        updatedAt: new Date(),
+      },
+    },
+  );
+
+  return { id, slug: existing.slug };
 }
