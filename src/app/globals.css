@@ -154,6 +154,10 @@ button { color: inherit; }
 .article-deck { margin: 34px 0; color: var(--ink-soft); font-family: Georgia, serif; font-size: clamp(1.2rem, 2.4vw, 1.55rem); line-height: 1.6; }
 .article-meta { display: flex; flex-wrap: wrap; gap: 18px; color: var(--muted); font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .article-meta > * + *::before { content: "·"; margin-right: 18px; }
+.share-control { min-height: 42px; margin-top: 28px; }
+.share-control button { display: inline-flex; min-height: 42px; align-items: center; gap: 10px; padding: 0 15px; border: 1px solid var(--line); background: transparent; color: var(--ink-soft); font-size: .7rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; cursor: pointer; transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease; }
+.share-control button:hover { border-color: var(--oxblood); background: var(--paper); color: var(--oxblood); }
+.share-control svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .article-cover { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: var(--line); }
 .article-cover img { object-fit: cover; }
 .article-body { padding: 74px 0 110px; }

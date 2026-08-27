@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MarkdownArticle } from "@/components/markdown-article";
 import { PostCard } from "@/components/post-card";
+import { ShareButton } from "@/components/share-button";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { getPostBySlug, getSuggestedPosts } from "@/lib/posts";
@@ -75,6 +76,7 @@ export default async function BlogPostPage({ params }: Props) {
             <time dateTime={post.publishedAt}>{formatter.format(new Date(post.publishedAt))}</time>
             <span>{post.readTime} min read</span>
           </div>
+          <ShareButton title={post.title} excerpt={post.excerpt} />
         </header>
 
         {post.coverImageUrl && (
