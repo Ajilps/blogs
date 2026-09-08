@@ -50,6 +50,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               '(function(){try{var t=localStorage.getItem("ajil-theme");document.documentElement.setAttribute("data-theme",t==="light"?"light":"dark")}catch(e){document.documentElement.setAttribute("data-theme","dark")}})()',
           }}
         />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8998391230494644"
+          crossOrigin="anonymous"
+        ></script>
       </head>
       <body className="min-h-full">
         {children}
